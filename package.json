@@ -1,0 +1,17 @@
+{
+  "name": "store-finalproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server-dev": "nodemon api/index.js",
+    "client-dev": "npm start --prefix client",
+    "start": "concurrently \"npm run server-dev\" \"npm run client-dev\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^4.0.1"
+  }
+}

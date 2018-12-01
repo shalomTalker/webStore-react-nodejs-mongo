@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WebStore-Bill</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        body {
+            padding-top: 50px;
+        }
+    </style>
+</head>
+
+<body class="container">
+
+    <header class="row">
+        <nav class="navbar-fixed" role="navigation">
+            <div >
+                <div class="nav-wrapper">
+                    <a class="navbar-brand" href="#">
+                        WebStore
+                    </a>
+                    <ul class="left">
+                        <li><a href="http://localhost:3000/">Home</a></li>
+                        <li><a href="http://localhost:3000/dashboard">DashBoard</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+        <h1>
+            Bill Order for
+            <%= user.firstName %>
+        </h1>
+    </header>
+    <main class="row">
+        <table class="left highlight responsive-table striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (var i = 0; i < order.products.length; i++) { %>
+                <tr className="collection-item teal">
+                    <td>
+                        <%= order.products[i].name %>
+                    </td>
+                    <td>
+                        <%= order.products[i].quantity %>
+                    </td>
+                    <td>
+                        <%= order.products[i].price %>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+            <td>
+               <b>Total</b>: <%= order.totalPrice %>
+            </td>
+        </table>
+        <div class="row">
+            <div class="col s12">
+                <div class="card-panel teal">
+                    <h3 class="white-text">Shipping Details</h3>
+                    <p class="white-text">
+                        <span><b>Shipping At:</b> <%= new Date(order.shippedAt).toLocaleString() %></span> <br>
+                        <span><b>Ordered At:</b> <%= new Date(order.orderedAt).toLocaleString() %></span> <br>
+                        <span><b>address details:</b> <br>
+                            <span><b>city:</b> <%= order.city %></span> <br>
+                            <span><b>street:</b> <%= order.street %></span> <br>
+                        </span>
+                        <span><b>Was charged to a card with the last four characters:</b> xx-<%= order.verifyPayment %></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <address>
+        Written by <a href="mailto:webStore@example.com">Finance Department</a>.<br>
+        <p>Thank you for your purchase. For technical support and service contact us <a href="mailto:webStore@example.com">here</a></p>
+    </address>
+
+    <footer>
+        <p class="text-center text-muted">© Copyright 2014 The Awesome People</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>
