@@ -13,7 +13,7 @@ After the successful completion of the order, the client will receive an invoice
 in Manager's interface, I allow the manager see the store's products, edit them and even add new products
 
 ## istall
-clone this project 
+clone this project run command npm install in 3 directories roo directory, "api" directory, "client" directory to install all dependecies, then in root directory run "npm start" and that command will start api server and react-ap both together
 
 ## used-Tech
 
